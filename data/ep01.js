@@ -1,0 +1,77 @@
+window.EP01_DATA = {
+  id: "ep01",
+  title: "他竟不肯签字",
+  defaultWord: "divorce",
+  paragraphs: [
+    "“签了。”",
+    "结婚第三十天。",
+    "我把 {{divorce}} 协议推到陆沉舟面前。",
+    "他神色 {{indifferent}}，冷淡的 {{appearance}} 看不出情绪。",
+    "“这是你的 {{initial}} 决定？”",
+    "“是。”",
+    "他翻开 {{previous}} 版本。",
+    "“你对这一条的 {{interpret}} 是 {{erroneous}} 的。”",
+    "我皱眉：“什么后果？”",
+    "“离婚后，沈家的债务会成为你的 {{obligation}}。”",
+    "我终于 {{perceive}} 到问题。",
+    "短短三十天，沈家的事已经成了我的 {{burden}}，这份协议却比想象中更 {{complicated}}。",
+    "“{{Regardless}}——任何 {{consequence}}，我都离。”",
+    "他第一次 {{hesitate}}，却没有签字。",
+    "“先 {{consult}} 律师。”",
+    "“没必要。”",
+    "“你连自己 {{submit}} 的协议都没看懂。”",
+    "我被噎住。",
+    "从我的 {{perspective}}，离婚只需要双方 {{accord}}，必要时各退一步 {{compromise}}。",
+    "可陆沉舟显然不这么想。",
+    "“现在 {{aware}} 到问题了？”",
+    "“所以你到底签不签？”",
+    "“不签。”",
+    "第二天，新协议送到我手里。",
+    "原来的债务条款全部 {{reverse}}，我有了更多 {{available}} 选择。",
+    "律师低声说：“陆总改的。”",
+    "我有些 {{doubtful}}。",
+    "那个看起来最冷漠的人，为什么替我承担风险？",
+    "我决定亲自 {{confront}} 他。",
+    "手机却先亮了。",
+    "陆沉舟只有一句：",
+    "“协议不会 {{seal}}。”",
+    "“等你足够 {{mature}}，再来和我谈离婚。”",
+    "我盯着屏幕，第一次开始 {{appreciate}} 他的“不肯签字”。"
+  ],
+  words: {
+    divorce: { phonetic: "/dɪˈvɔːs/", pos: "n. / v.", context: "离婚（的）", core: "离婚；与……离婚", meanings: ["n. 离婚；婚姻解除", "v. 与……离婚", "v. 使分离，使脱离"], mnemonic: "和 marriage 对照记：marriage 把两个人联结，divorce 让婚姻关系解除。", family: ["divorced adj. 离婚的", "divorcee n. 离婚者"], collocations: ["divorce agreement 离婚协议", "get a divorce 离婚", "divorce rate 离婚率"], storyHook: "她递出 divorce agreement，本想结束婚姻，却先撞见债务陷阱。" },
+    indifferent: { phonetic: "/ɪnˈdɪfrənt/", pos: "adj.", context: "冷淡的；漠不关心的", core: "冷漠的；不关心的；无所谓的", meanings: ["adj. 漠不关心的；冷淡的", "adj. 不感兴趣的；不在乎的", "adj. 一般的；平庸的｜较少见"], breakdown: "in- = 不 → different = 不同的 → 没什么不同 / 都一样 → 无所谓、不在乎", family: ["indifference  n. 冷漠；不关心", "indifferently  adv. 冷淡地；漠不关心地"], collocations: ["be indifferent to｜对……漠不关心", "remain indifferent to｜对……仍无动于衷", "indifferent attitude｜冷漠的态度"], storyHook: "她把离婚协议推过去，他却神色 indifferent。→ 冷淡的；漠不关心的" },
+    appearance: { phonetic: "/əˈpɪərəns/", pos: "n.", context: "外表；神态", core: "外表；出现", meanings: ["外表，外貌", "出现，露面", "表面现象"], breakdown: "appear（出现；显得）+ -ance（名词后缀）。", family: ["appear v. 出现；似乎", "apparent adj. 显然的；表面上的", "apparently adv. 看来；显然"], collocations: ["physical appearance 外貌", "make an appearance 露面", "outward appearance 外在表现"], storyHook: "他的 appearance 冷得看不出情绪，却藏不住后来替她改协议的事实。" },
+    initial: { phonetic: "/ɪˈnɪʃl/", pos: "adj. / n.", context: "最初的", core: "最初的；姓名首字母", meanings: ["adj. 最初的，开始的", "n. 姓名的首字母", "v. 用姓名首字母签署"], breakdown: "源自拉丁语 initium（开始）；与 initiate、initiative 同源。", family: ["initially adv. 最初", "initiate v. 发起；开始", "initiative n. 主动性；倡议"], collocations: ["initial decision 最初决定", "initial stage 初始阶段", "initial reaction 最初反应"], storyHook: "她的 initial 决定是马上离婚；信息变多后，最初判断也开始松动。" },
+    previous: { phonetic: "/ˈpriːviəs/", pos: "adj.", context: "先前的", core: "先前的；以前的", meanings: ["先前的，以前的", "（时间上）前一个的", "过早的，仓促的（正式）"], breakdown: "pre-（在前）+ via（道路）：走在前面的，引申为先前的。", family: ["previously adv. 先前；以前"], collocations: ["previous version 先前版本", "previous experience 以往经验", "previous studies 先前研究"], storyHook: "他翻回 previous 版本，不是在拖延，而是在找她没看见的风险。" },
+    interpret: { phonetic: "/ɪnˈtɜːprɪt/", pos: "v.", context: "理解；解释", core: "解释；理解；口译", meanings: ["解释，说明", "理解，把……理解为", "口译"], mnemonic: "联想 interpreter（口译员）：口译员先理解信息，再把意思解释给别人。", family: ["interpretation n. 解释；理解", "interpreter n. 口译员"], collocations: ["interpret data 解读数据", "interpret A as B 把A理解为B", "interpret the law 解释法律"], storyHook: "同一条款，interpret 错一步，债务就可能落到她身上。" },
+    erroneous: { phonetic: "/ɪˈrəʊniəs/", pos: "adj.", context: "错误的", core: "错误的；不正确的", meanings: ["错误的，不正确的", "基于错误信息的"], breakdown: "源自 error（错误）相关词源 + -ous（形容词后缀）。", family: ["error n. 错误", "erroneously adv. 错误地"], collocations: ["erroneous conclusion 错误结论", "erroneous belief 错误观念", "erroneous information 错误信息"], storyHook: "她以为签字只意味着自由，这个 erroneous 判断差点让债务一起落笔生效。" },
+    obligation: { phonetic: "/ˌɒblɪˈɡeɪʃn/", pos: "n.", context: "义务；必须承担的责任", core: "义务；责任", meanings: ["义务，职责", "必须做的事", "（法律或道德上的）责任"], breakdown: "oblige（迫使；使负有义务）+ -ation（名词后缀）。", family: ["oblige v. 迫使；帮忙", "obligatory adj. 强制性的", "obliged adj. 有义务的；感激的"], collocations: ["legal obligation 法律义务", "meet an obligation 履行义务", "under no obligation 没有义务"], storyHook: "一旦签下旧协议，沈家的债可能就成了她的 legal obligation——不是人情，而是必须承担的责任。" },
+    perceive: { phonetic: "/pəˈsiːv/", pos: "v.", context: "意识到；察觉", core: "察觉；理解；认为", meanings: ["察觉，感知", "理解，意识到", "认为，看待"], breakdown: "per-（完全）+ -ceive（拿、获取）：通过感官或思考获取认识。", family: ["perception n. 感知；看法", "perceptive adj. 洞察力强的"], collocations: ["perceive a risk 察觉风险", "be perceived as 被视为", "perceive the difference 察觉差异"], storyHook: "直到他点出债务，她才 perceive 到协议里真正的危险。" },
+    burden: { phonetic: "/ˈbɜːdn/", pos: "n. / v.", context: "负担", core: "负担；使负担", meanings: ["n. 负担，重担", "n. 责任，负荷", "v. 使负担，使承受"], mnemonic: "把 burden 想成压在肩上的重物；既可指钱，也可指责任或精神压力。", family: ["burdensome adj. 繁重的；难以承担的"], collocations: ["financial burden 经济负担", "bear the burden 承担重担", "place a burden on 给……造成负担"], storyHook: "沈家的事已经是 burden；若再签错协议，这份重担会更沉。" },
+    complicated: { phonetic: "/ˈkɒmplɪkeɪtɪd/", pos: "adj.", context: "复杂的", core: "复杂的；难处理的", meanings: ["复杂的，难懂的", "难处理的，棘手的", "关系复杂的"], breakdown: "complicate（使复杂）+ -ed；complicate 源自“折叠在一起”的概念。", family: ["complicate v. 使复杂化", "complication n. 复杂情况；并发症"], collocations: ["complicated issue 复杂问题", "complicated process 复杂过程", "highly complicated 非常复杂"], storyHook: "表面只差一个签名，背后却牵着债务条款；这份协议远比她想的 complicated。" },
+    Regardless: { phonetic: "/rɪˈɡɑːdləs/", pos: "adv.", context: "无论如何", core: "不顾；无论如何", meanings: ["adv. 不顾一切地；无论如何", "regardless of 不管；不顾"], breakdown: "regard（注意；考虑）+ -less（没有）：不加考虑地。", family: ["regard n./v. 注意；认为", "regarding prep. 关于"], collocations: ["regardless of 不管；不顾", "continue regardless 不管怎样继续", "regardless of cost 不计代价"], storyHook: "她说 Regardless，是把所有后果都推开；可真正的风险，不会因为不看就消失。" },
+    consequence: { phonetic: "/ˈkɒnsɪkwəns/", pos: "n.", context: "后果", core: "结果；后果", meanings: ["结果，后果", "重要性，影响", "逻辑上的推论"], breakdown: "con-（共同）+ sequ（跟随）+ -ence：随某事而来的结果。", family: ["consequent adj. 随之发生的", "consequently adv. 因此；结果"], collocations: ["face the consequences 承担后果", "serious consequence 严重后果", "as a consequence 因此；结果"], storyHook: "她说不在乎任何 consequence，却还不知道最现实的后果就是替别人背债。" },
+    hesitate: { phonetic: "/ˈhezɪteɪt/", pos: "v.", context: "犹豫", core: "犹豫；迟疑", meanings: ["犹豫，迟疑", "顾虑，不情愿"], mnemonic: "联想动作停在半路：想做却迟迟没做，就是 hesitate；常接 to do。", family: ["hesitation n. 犹豫", "hesitant adj. 犹豫的"], collocations: ["hesitate to do 犹豫做某事", "without hesitation 毫不犹豫", "hesitate for a moment 犹豫片刻"], storyHook: "他第一次 hesitate，停下的不是感情，而是那支会让她背债的笔。" },
+    consult: { phonetic: "/kənˈsʌlt/", pos: "v.", context: "咨询；请教", core: "咨询；查阅；商量", meanings: ["请教，咨询", "查阅，参考", "商量，磋商"], mnemonic: "consult 后直接接人或资料：consult a lawyer / consult a dictionary。", family: ["consultation n. 咨询；磋商", "consultant n. 顾问"], collocations: ["consult a lawyer 咨询律师", "consult with sb. 与某人商议", "consult a dictionary 查词典"], storyHook: "他让她先 consult 律师，是要她在签字前先看懂代价。" },
+    submit: { phonetic: "/səbˈmɪt/", pos: "v.", context: "提交", core: "提交；服从", meanings: ["提交，呈递", "屈服，服从", "主张，认为（正式）"], breakdown: "sub-（在下）+ mit（送）：送到权威或机构面前，引申为提交、服从。", family: ["submission n. 提交；服从", "submissive adj. 顺从的"], collocations: ["submit an application 提交申请", "submit a report 提交报告", "submit to authority 服从权威"], storyHook: "她亲手 submit 了协议，却没真正读懂它；提交不等于理解。" },
+    perspective: { phonetic: "/pəˈspektɪv/", pos: "n.", context: "角度；观点", core: "观点；视角", meanings: ["观点，看法", "观察问题的视角", "透视法；远景"], breakdown: "per-（贯穿）+ spect（看）+ -ive：看穿并形成观察角度。", family: ["prospect n. 前景", "spectator n. 观众", "inspect v. 检查"], collocations: ["from my perspective 在我看来", "different perspective 不同视角", "put into perspective 正确看待"], storyHook: "从她的 perspective，离婚只需双方同意；换个视角，协议却是风险分配。" },
+    accord: { phonetic: "/əˈkɔːd/", pos: "n. / v.", context: "一致；协议", core: "一致；协议；使符合", meanings: ["n. 一致，符合", "n. 协议，协定", "v. 给予", "v. 与……一致"], breakdown: "源自拉丁语 cor（心）：彼此同心，引申为一致。", family: ["accordance n. 一致；符合", "accordingly adv. 相应地；因此"], collocations: ["in accord with 与……一致", "reach an accord 达成协议", "of one's own accord 自愿地"], storyHook: "她以为双方达成 accord 就能结束婚姻，却忽略了协议内容是否公平。" },
+    compromise: { phonetic: "/ˈkɒmprəmaɪz/", pos: "n. / v.", context: "妥协；折中", core: "妥协；折中；让步", meanings: ["n. 妥协，折中", "v. 妥协，让步", "v. 损害，危及"], mnemonic: "双方谈判：你退一步，我退一步。→ 达成 compromise → 妥协；折中", family: [], collocations: ["reach a compromise｜达成妥协", "compromise with sb.｜与某人妥协", "compromise safety｜危及安全"], storyHook: "离婚谈判中，双方都需要 compromise。→ 做出让步，达成妥协。" },
+    aware: { phonetic: "/əˈweə(r)/", pos: "adj.", context: "意识到的", core: "意识到；察觉到", meanings: ["意识到的，知道的", "有警觉的，有觉察力的"], mnemonic: "熟词联想 beware（当心）：开始当心，说明已经 aware of 风险。", family: ["awareness n. 意识；认识", "unaware adj. 未察觉的"], collocations: ["be aware of 意识到", "raise awareness 提高认识", "fully aware 充分意识到"], storyHook: "看见债务条款，她才真正 aware of 风险。" },
+    reverse: { phonetic: "/rɪˈvɜːs/", pos: "v. / n. / adj.", context: "彻底改写；反转", core: "颠倒；逆转；相反的", meanings: ["v. 颠倒，反转", "v. 撤销，推翻", "n. 相反情况；背面", "adj. 相反的；反向的"], breakdown: "re- = 回、向后；vers / vert = 转 ↓ 转回去 ↓ 方向发生改变 ↓ reverse = 反转、逆转", family: ["reversal n. 逆转", "reversible adj. 可逆的", "version n. 版本"], collocations: ["reverse a decision 撤销决定", "reverse the trend 扭转趋势", "in reverse 倒退；反向"], storyHook: "原本不利的债务局面，被新协议彻底 reverse。→ 局势逆转。" },
+    available: { phonetic: "/əˈveɪləbl/", pos: "adj.", context: "可获得的；可选择的", core: "可用的；可获得的；有空的", meanings: ["可用的，可获得的", "有空的", "可购得的", "可供选择的"], breakdown: "avail（利用；有助于）+ -able（能够……的）：能够被利用的。", family: ["availability n. 可用性；可获得性", "unavailable adj. 不可用的"], collocations: ["available option 可选方案", "readily available 容易获得的", "available to the public 向公众开放"], storyHook: "条款被改后，她不再只有硬签一条路，而是有了更多 available options。" },
+    doubtful: { phonetic: "/ˈdaʊtfl/", pos: "adj.", context: "疑惑的；不确定的", core: "怀疑的；不确定的", meanings: ["感到怀疑的", "不确定的，未必的", "可疑的"], breakdown: "doubt（怀疑）+ -ful（充满……的）。", family: ["doubt n./v. 怀疑", "doubtless adv. 无疑地", "undoubtedly adv. 毫无疑问地"], collocations: ["be doubtful about 对……怀疑", "highly doubtful 很不确定", "doubtful claim 可疑的说法"], storyHook: "他明明一脸冷漠，却替她改掉风险；反差让她 doubtful，也逼她重新判断他。" },
+    confront: { phonetic: "/kənˈfrʌnt/", pos: "v.", context: "当面对质", core: "面对；正视；对抗", meanings: ["面对，正视（问题）", "与……对峙；对质", "使面临"], breakdown: "con-（共同；相对）+ front（正面）：面对面站着。", family: ["confrontation n. 对抗；冲突", "confrontational adj. 对抗性的"], collocations: ["confront a problem 正视问题", "confront sb. about sth. 就某事与某人对质", "be confronted with 面临"], storyHook: "她决定 confront 他，不再隔着协议猜测，而是要当面问清真相。" },
+    seal: { phonetic: "/siːl/", pos: "v. / n.", context: "敲定；正式确定", core: "封住；盖章确认；密封", meanings: ["v. 密封，封住", "v. 正式确定，达成", "n. 印章；封条", "n. 海豹"], mnemonic: "联想文件盖上 seal（印章）：封住开口，也让协议正式生效。", family: ["sealed adj. 密封的；确定的"], collocations: ["seal a deal 达成交易", "seal an agreement 正式确定协议", "seal off 封锁"], storyHook: "协议不会 seal：她没看懂之前，这件事就不会正式敲定。" },
+    mature: { phonetic: "/məˈtʃʊə(r)/", pos: "adj. / v.", context: "成熟的", core: "成熟的；使成熟", meanings: ["adj. 成熟的，理智的", "adj. 发展完善的", "v. 成熟；到期"], mnemonic: "联想果实成熟：从青涩到能承担结果；人心智成熟也用 mature。", family: ["maturity n. 成熟；到期", "immature adj. 不成熟的"], collocations: ["mature attitude 成熟的态度", "mature market 成熟市场", "emotionally mature 情感成熟的"], storyHook: "mature 不是年龄够大，而是看懂条款后仍能为选择负责。" },
+    appreciate: { phonetic: "/əˈpriːʃieɪt/", pos: "v.", context: "理解并感激", core: "欣赏；感激；理解", meanings: ["欣赏，赏识", "感激，感谢", "理解，意识到", "增值"], breakdown: "源自 price（价值）相关词源：认识到价值，引申为欣赏、感激。", family: ["appreciation n. 欣赏；感激；增值", "appreciative adj. 感激的；欣赏的"], collocations: ["appreciate the value 认识到价值", "greatly appreciate 非常感激", "appreciate the difficulty 理解困难"], storyHook: "她终于 appreciate 他的“不肯签字”：真正看见那份拒绝背后的价值，也生出感激。" }
+  }
+};
+
+Object.values(window.EP01_DATA.words).forEach(entry => {
+  entry.wordFormation = entry.breakdown || "";
+  entry.relatedWords = entry.family || [];
+  delete entry.breakdown;
+  delete entry.family;
+});

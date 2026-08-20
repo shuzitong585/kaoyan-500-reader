@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="考研500高频词爽文互动查词器 EP01 Demo">
+  <title>考研500高频词｜爽文互动查词器</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="reader" aria-labelledby="story-title">
+      <header class="reader-header">
+        <nav class="chapter-nav" id="chapter-nav" aria-label="章节导航"></nav>
+        <p class="eyebrow" id="chapter-label"></p>
+        <h1 id="story-title"></h1>
+        <div class="reader-meta">
+          <span>沉浸阅读</span>
+          <span id="word-count"></span>
+          <span id="viewed-count" aria-live="polite"></span>
+        </div>
+      </header>
+      <article id="story" class="story"></article>
+    </section>
+
+    <aside class="dictionary" aria-label="单词学习卡">
+      <div class="dictionary-inner">
+        <div id="word-card" class="word-card" aria-live="polite"></div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="data/ep01.js"></script>
+<script src="data/ep02.js"></script>
+<script src="data/ep03.js"></script>
+<script src="chapters.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
