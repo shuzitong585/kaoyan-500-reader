@@ -23,7 +23,11 @@
       <article id="story" class="story"></article>
     </section>
 
-    <aside class="dictionary" aria-label="单词学习卡">
+    <button class="mobile-card-backdrop" id="mobile-card-backdrop" type="button" aria-label="关闭单词卡" hidden></button>
+
+    <aside class="dictionary" id="dictionary-panel" aria-label="单词学习卡">
+      <div class="mobile-card-handle" aria-hidden="true"></div>
+      <button class="mobile-card-close" id="mobile-card-close" type="button" aria-label="关闭单词卡">×</button>
       <div class="dictionary-inner">
         <div id="word-card" class="word-card" aria-live="polite"></div>
       </div>

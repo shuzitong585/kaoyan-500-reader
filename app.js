@@ -10,9 +10,44 @@
   const viewedCount = document.getElementById("viewed-count");
   const chapterLabel = document.getElementById("chapter-label");
   const chapterNav = document.getElementById("chapter-nav");
+  const dictionary = document.getElementById("dictionary-panel");
+  const mobileCardBackdrop = document.getElementById("mobile-card-backdrop");
+  const mobileCardClose = document.getElementById("mobile-card-close");
   let storageKey = "";
   let wordKeys = [];
   let viewedWords = new Set();
+  let lastMobileTrigger = null;
+
+  function isMobileView() {
+    return window.matchMedia("(max-width: 768px)").matches;
+  }
+
+  function openMobileCard(trigger) {
+    const currentDictionary = document.querySelector(".dictionary");
+    if (!currentDictionary) return;
+    lastMobileTrigger = trigger || null;
+    mobileCardBackdrop.hidden = false;
+    currentDictionary.classList.add("mobile-open");
+    mobileCardBackdrop.classList.add("mobile-open");
+    document.body.classList.add("mobile-card-open");
+    currentDictionary.setAttribute("aria-hidden", "false");
+    mobileCardClose.focus({ preventScroll: true });
+  }
+
+  function closeMobileCard(restoreFocus = true) {
+    const currentDictionary = document.querySelector(".dictionary");
+    if (currentDictionary) {
+      currentDictionary.classList.remove("mobile-open");
+      currentDictionary.removeAttribute("aria-hidden");
+    }
+    mobileCardBackdrop.classList.remove("mobile-open");
+    document.body.classList.remove("mobile-card-open");
+    mobileCardBackdrop.hidden = true;
+    if (restoreFocus && lastMobileTrigger && isMobileView()) {
+      lastMobileTrigger.focus({ preventScroll: true });
+    }
+    lastMobileTrigger = null;
+  }
 
   const escapeHtml = (value) => String(value)
     .replaceAll("&", "&amp;")
@@ -117,6 +152,7 @@
   function loadChapter(chapterId) {
     const chapter = chapters.find(item => item.id === chapterId && item.status === "available");
     if (!chapter || !chapter.data) return;
+    closeMobileCard(false);
     data = chapter.data;
     loadViewedWords();
     title.textContent = data.title;
@@ -140,7 +176,24 @@
   });
   story.addEventListener("click", event => {
     const button = event.target.closest(".vocab");
-    if (button) selectWord(button.dataset.word, true);
+    if (button) {
+      selectWord(button.dataset.word, true);
+      if (isMobileView()) {
+        openMobileCard(button);
+      }
+    }
+  });
+  mobileCardBackdrop.addEventListener("click", () => closeMobileCard());
+  mobileCardClose.addEventListener("click", () => closeMobileCard());
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && dictionary.classList.contains("mobile-open")) {
+      closeMobileCard();
+    }
+  });
+  window.addEventListener("resize", () => {
+    if (!isMobileView() && dictionary.classList.contains("mobile-open")) {
+      closeMobileCard(false);
+    }
   });
   loadChapter(data.id);
 })();
