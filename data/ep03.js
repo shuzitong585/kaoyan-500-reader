@@ -71,7 +71,8 @@ window.EP03_DATA = {
       context: "怀疑的",
       core: "怀疑的；持怀疑态度的",
       meanings: ["adj. 怀疑的", "adj. 不相信的，持保留态度的"],
-      mnemonic: "联想 skeptic（怀疑者）：不轻易相信、要先看证据，就是 skeptical。",
+      wordFormation: "skept = 看、观察；-al = 形容词后缀 ↓ 反复审视、不轻信 ↓ skeptical = 怀疑的",
+      mnemonic: "",
       relatedWords: ["skeptic n. 怀疑者", "skepticism n. 怀疑态度"],
       collocations: ["be skeptical about｜对……持怀疑态度", "remain skeptical｜仍然怀疑", "skeptical attitude｜怀疑态度"],
       storyHook: "主管对新人很 skeptical。→ 他不相信她能完成任务。"
@@ -93,7 +94,8 @@ window.EP03_DATA = {
       context: "胜任能力",
       core: "能力；胜任",
       meanings: ["n. 能力，胜任", "n. 技能，专业能力", "n. 权限范围（正式）"],
-      mnemonic: "熟词联想 competent（能胜任的）：能把工作做好，说明具备 competence。",
+      wordFormation: "competent = 能胜任的；-ence = 名词后缀 ↓ competence = 胜任能力",
+      mnemonic: "",
       relatedWords: ["competent adj. 能胜任的", "incompetent adj. 不胜任的"],
       collocations: ["professional competence｜专业能力", "demonstrate competence｜展示能力", "lack competence｜缺乏能力"],
       storyHook: "他们质疑她的 competence。→ 她必须证明自己能胜任。"
@@ -203,10 +205,10 @@ window.EP03_DATA = {
       context: "方法；做法",
       core: "方法；接近；处理",
       meanings: ["n. 方法，方式", "v. 接近，靠近", "v. 着手处理", "n. 接近"],
-      mnemonic: "从“靠近一个目标”联想：走向问题的路线，就是解决问题的 approach。",
+      mnemonic: "把问题看成一个目标：选择怎样走近并解决它，就是 approach。→ 方法；做法",
       relatedWords: ["approachable adj. 易接近的；易理解的"],
       collocations: ["effective approach｜有效方法", "approach a problem｜处理问题", "new approach to｜针对……的新方法"],
-      storyHook: "旧 approach 太复杂。→ 原来的处理方法需要简化。"
+      storyHook: "她删掉无效步骤，为培训方案换了一套更直接的 approach。→ 解决问题的方法；做法。"
     },
     compulsory: {
       phonetic: "/kəmˈpʌlsəri/",
@@ -214,7 +216,8 @@ window.EP03_DATA = {
       context: "强制的；必做的",
       core: "强制的；义务的",
       meanings: ["adj. 强制的，必须做的", "adj. 义务的，必修的"],
-      mnemonic: "熟词联想 compel（强迫）：被规定必须完成、不能自由选择，就是 compulsory。",
+      wordFormation: "compel = 强迫；-ory = 具有……性质的 ↓ 被强制要求的 ↓ compulsory = 强制的；必修的",
+      mnemonic: "",
       relatedWords: ["compel v. 强迫", "compulsion n. 强迫；冲动"],
       collocations: ["compulsory education｜义务教育", "compulsory course｜必修课", "make compulsory｜规定为强制"],
       storyHook: "旧方案的 compulsory 环节太多。→ 太多步骤被规定为必须完成。"
@@ -324,7 +327,8 @@ window.EP03_DATA = {
       context: "理解并珍视",
       core: "欣赏；感激；理解",
       meanings: ["v. 欣赏，赏识", "v. 感激，感谢", "v. 理解，意识到", "v. 增值"],
-      mnemonic: "联想 price（价值）：看见某事的价值，就会理解、欣赏并珍视。",
+      wordFormation: "源自 price（价值）相关词源 ↓ 认识到价值 ↓ appreciate = 欣赏；感激；理解",
+      mnemonic: "",
       relatedWords: ["appreciation n. 欣赏；感激", "appreciative adj. 感激的；欣赏的"],
       collocations: ["appreciate the value｜认识到价值", "greatly appreciate｜非常感激", "appreciate the difficulty｜理解困难"],
       storyHook: "一句认可让她开始 appreciate 这份肯定。→ 她终于感受到它的分量。"

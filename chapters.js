@@ -2,8 +2,23 @@ window.CHAPTERS = [
   { id: "ep01", label: "EP01", status: "available", data: window.EP01_DATA },
   { id: "ep02", label: "EP02", status: "available", data: window.EP02_DATA },
   { id: "ep03", label: "EP03", status: "available", data: window.EP03_DATA },
-  ...Array.from({ length: 19 }, (_, index) => {
-    const number = String(index + 4).padStart(2, "0");
-    return { id: `ep${number}`, label: `EP${number}`, status: "coming-soon", data: null };
-  })
+  { id: "ep04", label: "EP04", status: "available", data: window.EP04_DATA },
+  { id: "ep05", label: "EP05", status: "available", data: window.EP05_DATA },
+  { id: "ep06", label: "EP06", status: "available", data: window.EP06_DATA },
+  { id: "ep07", label: "EP07", status: "available", data: window.EP07_DATA },
+  { id: "ep08", label: "EP08", status: "available", data: window.EP08_DATA },
+  { id: "ep09", label: "EP09", status: "available", data: window.EP09_DATA },
+  { id: "ep10", label: "EP10", status: "available", data: window.EP10_DATA },
+  { id: "ep11", label: "EP11", status: "available", data: window.EP11_DATA },
+  { id: "ep12", label: "EP12", status: "available", data: window.EP12_DATA },
+  { id: "ep13", label: "EP13", status: "available", data: window.EP13_DATA },
+  { id: "ep14", label: "EP14", status: "available", data: window.EP14_DATA },
+  { id: "ep15", label: "EP15", status: "available", data: window.EP15_DATA },
+  { id: "ep16", label: "EP16", status: "available", data: window.EP16_DATA },
+  { id: "ep17", label: "EP17", status: "available", data: window.EP17_DATA },
+  { id: "ep18", label: "EP18", status: "available", data: window.EP18_DATA },
+  { id: "ep19", label: "EP19", status: "available", data: window.EP19_DATA },
+  { id: "ep20", label: "EP20", status: "available", data: window.EP20_DATA },
+  { id: "ep21", label: "EP21", status: "available", data: window.EP21_DATA },
+  { id: "ep22", label: "EP22", status: "available", data: window.EP22_DATA }
 ];

@@ -1,0 +1,171 @@
+(function () {
+  "use strict";
+  const set = (chapter, word, fields) => Object.assign(chapter.words[word], fields);
+  const examples = (chapter, rows) => rows.forEach(([word, en, zh]) => set(chapter, word, { example: { en, zh } }));
+
+  examples(window.EP01_DATA, [
+    ["initial", "The initial plan failed to address the financial risk.", "最初的方案没有解决财务风险。"],
+    ["previous", "The previous version contained a serious error.", "先前的版本中有一个严重错误。"],
+    ["perceive", "Few people perceived the danger at first.", "起初很少有人察觉到危险。"],
+    ["burden", "The debt placed a heavy burden on the family.", "这笔债务给这个家庭带来了沉重负担。"],
+    ["complicated", "The agreement is more complicated than it appears.", "这份协议比表面看起来更加复杂。"],
+    ["Regardless", "The rule applies regardless of age or income.", "这项规定不受年龄或收入限制。"],
+    ["hesitate", "Do not hesitate to seek professional advice.", "如有需要，请及时寻求专业建议。"],
+    ["consult", "You should consult a lawyer before signing the contract.", "签合同前，你应该咨询律师。"],
+    ["accord", "The two sides finally reached an accord.", "双方最终达成了协议。"],
+    ["aware", "She was fully aware of the possible consequences.", "她充分意识到了可能的后果。"],
+    ["reverse", "The court may reverse the earlier decision.", "法院可能推翻先前的裁决。"],
+    ["available", "Several options are available to the public.", "公众有多种选择。"],
+    ["doubtful", "It is doubtful whether the plan will succeed.", "这项计划能否成功还很难说。"],
+    ["confront", "We must confront the problem rather than ignore it.", "我们必须正视问题，而不是置之不理。"],
+    ["seal", "The final signature sealed the agreement.", "最后的签字正式敲定了协议。"],
+    ["mature", "A mature decision requires both evidence and patience.", "成熟的决定既需要证据，也需要耐心。"]
+  ]);
+  Object.entries({
+    initial:{confusables:["initial：最初的；首字母","initiative：主动性；倡议"],examUsage:"initial 常作定语；名词可指姓名首字母。"},
+    previous:{confusables:["previous：时间或顺序上先前的","former：以前担任某身份的；两者中的前者"],examUsage:"previous to 较正式，日常和阅读中通常用 prior to 或 before。"},
+    perceive:{confusables:["perceive：察觉并形成认识","notice：注意到具体事物"],examUsage:"be perceived as 表示“被视为……”。"},
+    burden:{examUsage:"既可指经济负担，也可指责任或精神压力。",errorPoint:"动词结构为 burden sb. with sth.。"},
+    complicated:{confusables:["complicated：结构复杂、难处理","complex：由多个相互关联部分组成"],examUsage:"可修饰 issue、process、relationship。"},
+    Regardless:{examUsage:"最重要的结构是 regardless of，后接名词或动名词。",errorPoint:"标准正式表达用 regardless，不用 irregardless。"},
+    hesitate:{examUsage:"hesitate to do；without hesitation 是高频结构。",errorPoint:"hesitate 后接不定式，不用 hesitate doing。"},
+    consult:{confusables:["consult：向专业人士请教或查阅资料","discuss：双方讨论"],errorPoint:"consult a lawyer 直接接宾语；consult with sb. 强调商议。"},
+    accord:{examUsage:"in accord with 表示“与……一致”；of one's own accord 表示“自愿地”。"},
+    aware:{confusables:["aware：已意识到的","conscious：有意识的；清醒的"],errorPoint:"固定结构 be aware of / be aware that。"},
+    reverse:{confusables:["reverse：使方向、决定或趋势反转","revise：修改文字、计划或观点"],examUsage:"常见 reverse a decision / trend。"},
+    available:{examUsage:"可表示“可获得的、可用的、有空的”；常见 be available to sb.。"},
+    doubtful:{confusables:["doubtful：不确定或觉得可疑","skeptical：持审慎怀疑态度"],examUsage:"It is doubtful whether… 表示“……是否会发生很难说”。"},
+    confront:{examUsage:"confront a problem；be confronted with 表示“面临”。",errorPoint:"表示就某事质问某人，用 confront sb. about/with sth.。"},
+    seal:{examUsage:"除“密封”外，seal a deal 表示“正式敲定交易”。"},
+    mature:{examUsage:"还可作动词表示“成熟、到期”；mature market 指成熟市场。",errorPoint:"maturity 是名词，不要误写成 matureity。"}
+  }).forEach(([w,f])=>set(window.EP01_DATA,w,f));
+
+  examples(window.EP02_DATA, [
+    ["refund", "Customers can request a full refund within seven days.", "顾客可在七天内申请全额退款。"],
+    ["payment", "The company failed to make the final payment.", "公司未能支付最后一笔款项。"],
+    ["penalty", "The firm faced a heavy penalty for breaking the rules.", "该公司因违规面临严厉处罚。"],
+    ["collapse", "Investor confidence collapsed after the report.", "报告公布后，投资者信心骤然崩溃。"],
+    ["previous", "Previous studies reached a different conclusion.", "先前的研究得出了不同结论。"],
+    ["economy", "A strong economy depends on stable institutions.", "强健的经济有赖于稳定的制度。"],
+    ["erroneous", "The estimate was based on erroneous data.", "这一估算建立在错误数据之上。"],
+    ["consumption", "The policy aims to reduce energy consumption.", "这项政策旨在降低能源消耗。"],
+    ["circulation", "The old notes were removed from circulation.", "旧纸币停止了流通。"],
+    ["consequence", "The decision may have unintended consequences.", "这项决定可能带来意料之外的后果。"],
+    ["enclose", "Please enclose a copy of the original receipt.", "请随函附上原始收据的复印件。"],
+    ["boom", "The city experienced a construction boom.", "这座城市经历了一轮建设热潮。"],
+    ["severe", "The region is facing a severe shortage of water.", "该地区正面临严重缺水。"],
+    ["stress", "Financial stress can affect mental health.", "经济压力会影响心理健康。"],
+    ["desperate", "The firm made a desperate attempt to survive.", "这家公司孤注一掷，试图生存下来。"],
+    ["available", "The service is available to all residents.", "所有居民都可以使用这项服务。"],
+    ["condemn", "The report condemned the misuse of public funds.", "报告谴责了滥用公共资金的行为。"],
+    ["amaze", "The speed of the recovery amazed the doctors.", "恢复速度之快令医生们惊讶。"],
+    ["appreciate", "Investors failed to appreciate the scale of the risk.", "投资者未能充分认识到风险的规模。"]
+  ]);
+  Object.entries({
+    refund:{examUsage:"refund 作名词时重音通常在前，作动词时通常在后。",errorPoint:"可说 refund sb. 或 refund the money to sb.。"},
+    payment:{confusables:["payment：支付行为或款项","pay：工资；支付这一动作"],examUsage:"make a payment；payment for sth.。"},
+    penalty:{confusables:["penalty：违规受到的处罚","fine：罚款这一具体处罚"],examUsage:"impose a penalty on sb.；penalty for doing sth.。"},
+    collapse:{examUsage:"可指建筑倒塌，也可指市场、制度、谈判或健康崩溃。"},
+    previous:{confusables:["previous：先前的","precious：珍贵的，注意拼写和读音"],examUsage:"previous experience / studies 是正式文本常见搭配。"},
+    economy:{confusables:["economy：经济体系；节约","economics：经济学","economic：经济的"],errorPoint:"economic 指经济的；economical 指节约的、实惠的。"},
+    erroneous:{confusables:["erroneous：正式语境中的错误","wrong：一般性的错误"],examUsage:"常修饰 belief、assumption、conclusion。"},
+    consumption:{examUsage:"可指消费，也可指能源、资源消耗；通常不可数。"},
+    circulation:{examUsage:"可指货币流通、血液循环和报刊发行量。"},
+    consequence:{confusables:["consequence：行为带来的后果","result：中性的结果"],examUsage:"as a consequence；face the consequences。"},
+    enclose:{confusables:["enclose：把某物装入或随函附上","attach：把文件附加到邮件或物体上"],examUsage:"商务信函常用 Please find enclosed…。"},
+    boom:{confusables:["boom：快速繁荣、激增","growth：一般性增长"],examUsage:"a boom in demand；economic boom。"},
+    severe:{confusables:["severe：程度严重或态度严厉","serious：严重且值得重视"],examUsage:"常修饰 damage、shortage、penalty。"},
+    stress:{examUsage:"名词可指压力或强调；动词 stress 可表示“强调”。",errorPoint:"表示“强调某事”直接用 stress sth.，不用 stress on sth.。"},
+    desperate:{examUsage:"be desperate for sth. / to do；还可表示“极严重、孤注一掷的”。"},
+    available:{examUsage:"available to sb. 与 available for use 是常见结构。"},
+    condemn:{examUsage:"condemn sb. for sth.；be condemned to 表示被迫陷入某状态。"},
+    amaze:{confusables:["amazed：人感到惊讶","amazing：事物令人惊讶"],errorPoint:"描述人的感受用 amazed，不用 amazing。"},
+    appreciate:{examUsage:"此处可理解为“充分认识到”；还可表示欣赏、感激和升值。"}
+  }).forEach(([w,f])=>set(window.EP02_DATA,w,f));
+
+  examples(window.EP03_DATA, [
+    ["submit", "Candidates must submit proof of their qualifications.", "申请人必须提交资历证明。"],
+    ["graduate", "Most students graduate with some practical experience.", "大多数学生毕业时都具备一定实践经验。"],
+    ["corporate", "The course focuses on corporate decision-making.", "这门课程重点研究企业决策。"],
+    ["tutor", "Each student meets a tutor once a week.", "每名学生每周与导师见面一次。"],
+    ["tuition", "Many students struggle to pay their tuition fees.", "许多学生难以负担学费。"],
+    ["consult", "The university consulted employers about the course.", "大学就课程设置征询了雇主意见。"],
+    ["brief", "The manager briefed the team on the new policy.", "经理向团队简要说明了新政策。"],
+    ["participant", "Each participant completed a short survey.", "每位参与者都完成了一份简短问卷。"],
+    ["apply", "Students can apply for the programme online.", "学生可以在线申请该项目。"],
+    ["compulsory", "Safety training is compulsory for all employees.", "所有员工都必须接受安全培训。"],
+    ["available", "The course is available to recent graduates.", "应届毕业生可以选修这门课程。"],
+    ["equip", "The programme equips students with practical skills.", "该项目使学生掌握实用技能。"],
+    ["ability", "The test measures the ability to solve problems.", "这项测试衡量解决问题的能力。"],
+    ["consequence", "Poor training can have serious consequences.", "培训不足可能造成严重后果。"],
+    ["output", "Better training can improve both quality and output.", "更好的培训能够同时提高质量和产出。"],
+    ["promote", "The scheme promotes cooperation between universities and firms.", "该计划促进大学与企业之间的合作。"],
+    ["instruct", "Staff were instructed to follow the new procedure.", "员工被要求遵循新流程。"],
+    ["occupation", "Teaching remains a respected occupation.", "教师仍是一项受人尊敬的职业。"],
+    ["appreciate", "Employers appreciate graduates with practical experience.", "雇主看重具有实践经验的毕业生。"]
+  ]);
+  Object.entries({
+    submit:{examUsage:"submit sth. to sb.；submit to 还可表示服从。",errorPoint:"接收方前使用 to。"},
+    graduate:{examUsage:"作动词时 graduate from a university；作名词指毕业生。",errorPoint:"不用 graduate at a university 表示从该校毕业。"},
+    corporate:{confusables:["corporate：公司的、企业整体的","commercial：商业活动或营利性质的"],examUsage:"corporate culture / responsibility / strategy。"},
+    tutor:{confusables:["tutor：导师或私人教师","teacher：学校课堂教师"],examUsage:"还可作动词：tutor sb. in sth.。"},
+    tuition:{confusables:["tuition：学费或教学","fee：具体费用的统称"],errorPoint:"tuition 通常不可数；tuition fees 是常见表达。"},
+    consult:{examUsage:"consult employers 表示征求意见；consult with 强调共同商议。"},
+    brief:{examUsage:"除“简短的”外，动词 brief 表示介绍必要情况。",errorPoint:"brief sb. on/about sth.。"},
+    participant:{confusables:["participant：主动参与者","attendee：出席者，不一定参与活动"],examUsage:"participant in a study / programme。"},
+    apply:{examUsage:"apply for 申请；apply to 适用于或向机构申请；apply A to B 应用。",errorPoint:"申请职位用 apply for a position。"},
+    compulsory:{confusables:["compulsory：规则强制要求","necessary：客观上有必要"],examUsage:"compulsory education；反义词 optional。"},
+    available:{examUsage:"available to students；available for use。"},
+    equip:{examUsage:"equip sb. with sth. 是核心结构。",errorPoint:"不用 equip sth. to sb.。"},
+    ability:{examUsage:"ability to do；也常见 ability in a subject。",errorPoint:"表示做某事的能力，后接不定式。"},
+    consequence:{examUsage:"have consequences for 表示“对……产生后果”。"},
+    output:{examUsage:"可指工业产量、工作成果和计算机输出。"},
+    promote:{examUsage:"可表示促进、推广，也可表示晋升；promote sb. to a position。"},
+    instruct:{examUsage:"instruct sb. to do 表示命令或指导某人做某事。",errorPoint:"instruction 可数时常用复数 instructions 表示操作说明。"},
+    occupation:{confusables:["occupation：职业，正式用语","job：具体岗位","career：长期职业生涯"],examUsage:"还可表示占用、占领，需结合语境。"},
+    appreciate:{examUsage:"可表示欣赏、感激、理解；此处强调认可价值。"}
+  }).forEach(([w,f])=>set(window.EP03_DATA,w,f));
+
+  examples(window.EP04_DATA, [
+    ["qualification", "She has the qualifications required for the role.", "她具备这一职位要求的资历。"],
+    ["flock", "People flocked to the hall after the announcement.", "消息公布后，人们纷纷涌向大厅。"],
+    ["fake", "The investigation exposed several fake documents.", "调查揭露了几份伪造文件。"],
+    ["attractive", "A high salary does not make every job attractive.", "高薪并不能让每份工作都具有吸引力。"],
+    ["embarrass", "His question embarrassed everyone at the table.", "他的问题让桌上的每个人都很尴尬。"],
+    ["competence", "The interview is designed to assess professional competence.", "这次面试旨在评估专业胜任能力。"],
+    ["sophisticated", "The system uses sophisticated methods to detect fraud.", "该系统采用精密方法识别欺诈。"],
+    ["initial", "Her initial impression proved to be wrong.", "事实证明，她最初的印象是错的。"],
+    ["absurd", "It is absurd to judge ability by appearance alone.", "只凭外表判断能力是荒谬的。"],
+    ["critic", "Even his strongest critics accepted the evidence.", "即使最严厉的批评者也接受了这些证据。"],
+    ["ignorance", "Ignorance of the rules is not a valid excuse.", "不了解规则并不是合理的借口。"],
+    ["ignorant", "He was ignorant of the facts behind the decision.", "他不了解这项决定背后的事实。"],
+    ["occasional", "The job requires occasional travel abroad.", "这份工作偶尔需要出国。"],
+    ["skeptical", "The audience remained skeptical about his claim.", "听众仍对他的说法持怀疑态度。"],
+    ["complaint", "The manager received a formal complaint about the service.", "经理收到了一份针对服务的正式投诉。"],
+    ["concentrate", "It is difficult to concentrate in a noisy room.", "在嘈杂的房间里很难集中注意力。"],
+    ["offensive", "The advertisement was widely regarded as offensive.", "这则广告被普遍认为带有冒犯性。"],
+    ["offend", "His careless remark offended several colleagues.", "他不经意的一句话冒犯了几位同事。"],
+    ["indifferent", "The public cannot remain indifferent to injustice.", "公众不能对不公正现象无动于衷。"]
+  ]);
+  Object.entries({
+    qualification:{confusables:["qualification：资格、资历","quality：质量；品质"],examUsage:"复数 qualifications 常指学历和资历。"},
+    flock:{examUsage:"flock to 表示成群涌向；a flock of 通常修饰鸟或羊。",errorPoint:"flock 作集合名词时不要与 flow 混淆。"},
+    fake:{confusables:["fake：为欺骗而伪造的","false：不真实或错误的"],examUsage:"可作形容词、名词和动词。"},
+    attractive:{confusables:["attractive：有吸引力的","attracted：感到被吸引的"],errorPoint:"事物有吸引力用 attractive；人被吸引用 attracted。"},
+    embarrass:{confusables:["embarrassed：人感到尴尬","embarrassing：事物令人尴尬"],errorPoint:"描述人的感受用 -ed。"},
+    competence:{confusables:["competence：胜任能力","ability：泛指能力"],examUsage:"professional competence；通常不可数。"},
+    sophisticated:{confusables:["sophisticated：复杂精密或老练","complicated：复杂、难处理"],examUsage:"需结合修饰对象判断是“精密”还是“老练”。"},
+    initial:{confusables:["initial：最初的","initiative：主动性；倡议"],examUsage:"initial impression / response。"},
+    absurd:{confusables:["absurd：荒谬到不合逻辑","ridiculous：荒唐可笑，较口语"],examUsage:"It is absurd to do / that…。"},
+    critic:{confusables:["critic：批评者、评论家","critical：批评性的；关键的"],errorPoint:"critic 是人；criticism 是批评这一行为或意见。"},
+    ignorance:{confusables:["ignorance：无知，名词","ignorant：无知的，形容词"],examUsage:"ignorance of/about sth.。"},
+    ignorant:{errorPoint:"be ignorant of/about sth.；不要用 ignorant to。"},
+    occasional:{confusables:["occasional：偶尔发生的","accidental：意外发生的"],examUsage:"occasional visitor / problem。"},
+    skeptical:{confusables:["skeptical：审慎怀疑","cynical：认为他人动机自私，不信任"],examUsage:"be skeptical about/of。"},
+    complaint:{examUsage:"make / file a complaint；complaint about sth.。",errorPoint:"complain 是动词，complaint 是名词。"},
+    concentrate:{examUsage:"concentrate on 是核心结构；还可表示浓缩。",errorPoint:"表示专注于，不用 concentrate in sth.。"},
+    offensive:{confusables:["offensive：言行冒犯人的；也可指进攻性的","offended：人感到被冒犯的"],examUsage:"offensive language；take offence at。"},
+    offend:{examUsage:"offend sb.；be offended by/at sth.。",errorPoint:"不用 offend to sb.。"},
+    indifferent:{confusables:["indifferent：不关心、无所谓","uninterested：没有兴趣"],errorPoint:"固定结构 be indifferent to。"}
+  }).forEach(([w,f])=>set(window.EP04_DATA,w,f));
+})();

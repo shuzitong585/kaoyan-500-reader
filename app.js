@@ -19,7 +19,7 @@
   let lastMobileTrigger = null;
 
   function isMobileView() {
-    return window.matchMedia("(max-width: 768px)").matches;
+    return window.matchMedia("(max-width: 480px)").matches;
   }
 
   function openMobileCard(trigger) {
@@ -28,8 +28,13 @@
     lastMobileTrigger = trigger || null;
     mobileCardBackdrop.hidden = false;
     currentDictionary.classList.add("mobile-open");
+    currentDictionary.style.visibility = "visible";
+    currentDictionary.style.transform = "translateY(0)";
     mobileCardBackdrop.classList.add("mobile-open");
+    mobileCardBackdrop.style.visibility = "visible";
+    mobileCardBackdrop.style.opacity = "1";
     document.body.classList.add("mobile-card-open");
+    document.body.style.overflow = "hidden";
     currentDictionary.setAttribute("aria-hidden", "false");
     mobileCardClose.focus({ preventScroll: true });
   }
@@ -38,10 +43,15 @@
     const currentDictionary = document.querySelector(".dictionary");
     if (currentDictionary) {
       currentDictionary.classList.remove("mobile-open");
+      currentDictionary.style.visibility = "";
+      currentDictionary.style.transform = "";
       currentDictionary.removeAttribute("aria-hidden");
     }
     mobileCardBackdrop.classList.remove("mobile-open");
+    mobileCardBackdrop.style.visibility = "";
+    mobileCardBackdrop.style.opacity = "";
     document.body.classList.remove("mobile-card-open");
+    document.body.style.overflow = "";
     mobileCardBackdrop.hidden = true;
     if (restoreFocus && lastMobileTrigger && isMobileView()) {
       lastMobileTrigger.focus({ preventScroll: true });
@@ -81,6 +91,22 @@
     return `<section class="card-section"><h3 class="section-label">${label}</h3><p class="section-body ${className}">${escapeHtml(body)}</p></section>`;
   }
 
+  function flexibleSection(label, content, className = "") {
+    if (Array.isArray(content)) return listSection(label, content);
+    return textSection(label, content, className);
+  }
+
+  function exampleSection(example) {
+    if (!example) return "";
+    if (typeof example === "string") return textSection("例句", example, "example-text");
+    if (!example.en || !example.zh) return "";
+    return `<section class="card-section example-section">
+      <h3 class="section-label">例句</h3>
+      <p class="section-body example-en">${escapeHtml(example.en)}</p>
+      <p class="example-zh">${escapeHtml(example.zh)}</p>
+    </section>`;
+  }
+
   function updateViewedCount() {
     viewedCount.textContent = `已查看 ${viewedWords.size} / ${wordKeys.length}`;
   }
@@ -118,7 +144,9 @@
       button.setAttribute("aria-pressed", String(selected));
     });
 
-    const rootLabel = item.wordFormation ? "词根词缀｜拆开记" : "记忆技巧｜这样记";
+    const contextMeaning = item.context ?? item.contextMeaning;
+    const coreMeaning = item.core ?? item.meaning;
+    const mnemonic = item.mnemonic || item.memoryTip;
     card.innerHTML = `
       <div class="word-title">
         <p class="word-kicker">当前单词</p>
@@ -130,13 +158,18 @@
       </div>
       <section class="meaning-now">
         <h3 class="section-label">本文义</h3>
-        <p>${escapeHtml(item.context)}</p>
+        <p>${escapeHtml(contextMeaning)}</p>
       </section>
-      ${textSection("核心词义", item.core, "core-meaning")}
+      ${textSection("核心词义", coreMeaning, "core-meaning")}
       ${listSection("一词多义", item.meanings)}
-      ${textSection(rootLabel, item.wordFormation || item.mnemonic)}
-      ${listSection("词族联想", item.relatedWords)}
       ${listSection("高频搭配", item.collocations)}
+      ${flexibleSection("易混辨析", item.confusables)}
+      ${flexibleSection("考研用法", item.examUsage)}
+      ${textSection("构词 / 拆词助记", item.wordFormation)}
+      ${listSection("词族联想", item.relatedWords)}
+      ${flexibleSection("易错点", item.errorPoint)}
+      ${exampleSection(item.example)}
+      ${textSection("记忆技巧｜这样记", mnemonic)}
       ${textSection("剧情记忆", item.storyHook, "memory")}
     `;
   }

@@ -32,7 +32,8 @@ window.EP02_DATA = {
       context: "破产的",
       core: "破产的；使破产",
       meanings: ["adj. 破产的", "adj. 彻底缺乏的", "v. 使破产"],
-      mnemonic: "联想账户里的钱彻底见底：企业无力偿债，就是 bankrupt。",
+      wordFormation: "源自意大利语 banca rotta：banca = 银行家的柜台；rotta = 破损的 ↓ 柜台破产停业 ↓ bankrupt = 破产的",
+      mnemonic: "",
       relatedWords: ["bankruptcy n. 破产"],
       collocations: ["go bankrupt｜破产", "bankrupt company｜破产公司", "morally bankrupt｜道德沦丧的"],
       storyHook: "海外项目失败，公司最终 bankrupt。→ 陷入破产。"
@@ -54,7 +55,8 @@ window.EP02_DATA = {
       context: "储备资金",
       core: "储备；保留；预订",
       meanings: ["n. 储备；备用物", "v. 保留；预留", "v. 预订"],
-      wordFormation: "re- = 再、回；serve = 保留；保存 ↓ 提前保存一部分 ↓ reserve ↓ 储备；保留",
+      wordFormation: "",
+      mnemonic: "场景联想：提前留出一部分，不马上使用，等需要时再调用。→ reserve = 储备；保留；预订",
       relatedWords: ["reservation n. 预订；保留意见", "reserved adj. 预留的；矜持的"],
       collocations: ["cash reserve｜现金储备", "reserve the right｜保留权利", "in reserve｜备用"],
       storyHook: "公司现金 reserve 快见底。→ 可用于救急的储备资金越来越少。"
@@ -120,7 +122,8 @@ window.EP02_DATA = {
       context: "先前的",
       core: "先前的；以前的",
       meanings: ["先前的，以前的", "前一个的"],
-      mnemonic: "联想 previous page：已经翻过去的上一页，就是先前的。",
+      wordFormation: "pre- = 在前；via = 道路 ↓ 走在前面的 ↓ previous = 先前的",
+      mnemonic: "",
       relatedWords: ["previously adv. 先前；以前"],
       collocations: ["previous report｜先前的报告", "previous experience｜以往经验", "previous studies｜先前研究"],
       storyHook: "previous 报告找错了原因。→ 先前的判断需要重做。"
@@ -131,7 +134,8 @@ window.EP02_DATA = {
       context: "经济形势",
       core: "经济；节约",
       meanings: ["经济，经济体", "节约，节省"],
-      mnemonic: "熟词联想 economic（经济的）：economy 指整个经济体系，也可指节约。",
+      wordFormation: "源自希腊语：oikos = 家庭；nemein = 管理、分配 ↓ 管理家庭资源 ↓ economy = 经济；节约",
+      mnemonic: "",
       relatedWords: ["economic adj. 经济的", "economical adj. 节约的", "economist n. 经济学家"],
       collocations: ["global economy｜全球经济", "market economy｜市场经济", "boost the economy｜促进经济"],
       storyHook: "报告把亏损归因于 economy 下行。→ 整体经济环境被当成原因。"
@@ -318,7 +322,8 @@ window.EP02_DATA = {
       context: "理解并感激",
       core: "欣赏；感激；理解",
       meanings: ["欣赏，赏识", "感激，感谢", "理解，意识到", "增值"],
-      mnemonic: "联想 price（价值）：看见某事的价值，就会理解、欣赏并感激。",
+      wordFormation: "源自 price（价值）相关词源 ↓ 认识到价值 ↓ appreciate = 欣赏；感激；理解",
+      mnemonic: "",
       relatedWords: ["appreciation n. 欣赏；感激", "appreciative adj. 感激的；欣赏的"],
       collocations: ["appreciate the value｜认识到价值", "greatly appreciate｜非常感激", "appreciate the difficulty｜理解困难"],
       storyHook: "经历职场危机后，她开始 appreciate 那次拒签。→ 她终于看见它的价值。"
