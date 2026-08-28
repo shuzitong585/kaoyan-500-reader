@@ -2,24 +2,21 @@
   "use strict";
 
   const chapters = window.CHAPTERS;
-  let data = chapters.find(chapter => chapter.status === "available").data;
+  const learningStore = window.createLearningStore({ chapters });
+  let currentChapter = chapters.find(chapter => chapter.status === "available");
+  let data = currentChapter.data;
   const title = document.getElementById("story-title");
   const story = document.getElementById("story");
   const card = document.getElementById("word-card");
-  const count = document.getElementById("word-count");
-  const viewedCount = document.getElementById("viewed-count");
   const chapterLabel = document.getElementById("chapter-label");
   const chapterNav = document.getElementById("chapter-nav");
   const dictionary = document.getElementById("dictionary-panel");
   const mobileCardBackdrop = document.getElementById("mobile-card-backdrop");
   const mobileCardClose = document.getElementById("mobile-card-close");
-  let storageKey = "";
-  let wordKeys = [];
-  let viewedWords = new Set();
   let lastMobileTrigger = null;
 
   function isMobileView() {
-    return window.matchMedia("(max-width: 480px)").matches;
+    return window.matchMedia("(max-width: 768px)").matches;
   }
 
   function openMobileCard(trigger) {
@@ -66,7 +63,7 @@
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 
-  function renderParagraph(text) {
+  function renderParagraph(text, paragraphIndex) {
     const pattern = /\{\{([A-Za-z]+)\}\}/g;
     let html = "";
     let cursor = 0;
@@ -74,7 +71,8 @@
     while ((match = pattern.exec(text)) !== null) {
       html += escapeHtml(text.slice(cursor, match.index));
       const word = match[1];
-      html += `<button class="vocab" type="button" data-word="${escapeHtml(word)}">${escapeHtml(word)}</button>`;
+      const location = learningStore.getOccurrenceAt(currentChapter.id, paragraphIndex, match.index);
+      html += `<button class="vocab" type="button" data-word="${escapeHtml(word)}" data-chapter="${escapeHtml(currentChapter.id)}" data-occurrence="${location?.occurrenceIndex || 0}" data-occurrence-id="${escapeHtml(location?.occurrenceId || "")}">${escapeHtml(word)}</button>`;
       cursor = pattern.lastIndex;
     }
     html += escapeHtml(text.slice(cursor));
@@ -107,37 +105,9 @@
     </section>`;
   }
 
-  function updateViewedCount() {
-    viewedCount.textContent = `已查看 ${viewedWords.size} / ${wordKeys.length}`;
-  }
-
-  function loadViewedWords() {
-    storageKey = `${data.id}:viewedWords`;
-    wordKeys = Object.keys(data.words);
-    viewedWords = new Set();
-    try {
-      const saved = JSON.parse(localStorage.getItem(storageKey) || "[]");
-      viewedWords = new Set(saved.filter(word => wordKeys.includes(word)));
-    } catch (error) {
-      console.warn("学习进度读取失败，将从本章开始记录。", error);
-    }
-  }
-
-  function markAsViewed(word) {
-    if (viewedWords.has(word)) return;
-    viewedWords.add(word);
-    updateViewedCount();
-    try {
-      localStorage.setItem(storageKey, JSON.stringify([...viewedWords]));
-    } catch (error) {
-      console.warn("学习进度保存失败。", error);
-    }
-  }
-
-  function selectWord(word, trackView = false) {
+  function selectWord(word) {
     const item = data.words[word];
     if (!item) return;
-    if (trackView) markAsViewed(word);
     document.querySelectorAll(".vocab").forEach(button => {
       const selected = button.dataset.word === word;
       button.classList.toggle("active", selected);
@@ -172,6 +142,9 @@
       ${textSection("记忆技巧｜这样记", mnemonic)}
       ${textSection("剧情记忆", item.storyHook, "memory")}
     `;
+    window.VocabBook.attachCard(card, { word, item, chapter: data });
+    window.LearningStatus.attachCard(card, word);
+    return true;
   }
 
   function renderChapterNav() {
@@ -186,19 +159,18 @@
     const chapter = chapters.find(item => item.id === chapterId && item.status === "available");
     if (!chapter || !chapter.data) return;
     closeMobileCard(false);
-    data = chapter.data;
-    loadViewedWords();
+    currentChapter = chapter;
+    data = currentChapter.data;
     title.textContent = data.title;
     chapterLabel.textContent = `考研 500 高频词 · ${chapter.label}`;
     story.innerHTML = data.paragraphs.map(renderParagraph).join("");
-    count.textContent = `${wordKeys.length} 个目标词`;
-    updateViewedCount();
+    window.LearningStatus.setChapter(currentChapter.id);
     chapterNav.querySelectorAll(".chapter-tab").forEach(button => {
       const active = button.dataset.chapter === chapter.id;
       button.classList.toggle("active", active);
       button.setAttribute("aria-current", active ? "page" : "false");
     });
-    selectWord(data.defaultWord, false);
+    selectWord(data.defaultWord);
     document.querySelector(".dictionary").scrollTop = 0;
   }
 
@@ -210,7 +182,12 @@
   story.addEventListener("click", event => {
     const button = event.target.closest(".vocab");
     if (button) {
-      selectWord(button.dataset.word, true);
+      // Programmatic selection never records learning. Only real story clicks do.
+      if (selectWord(button.dataset.word) && learningStore.recordContact(button.dataset.occurrenceId)) {
+        // Refresh this document synchronously after saving; storage events only
+        // notify other documents. Reuse the existing renderer and state source.
+        window.LearningStatus.renderLearningStatus();
+      }
       if (isMobileView()) {
         openMobileCard(button);
       }
@@ -228,5 +205,29 @@
       closeMobileCard(false);
     }
   });
+  function navigateToStory(episode, word, occurrenceId) {
+      const chapter = chapters.find(entry => entry.id === episode && entry.status === "available");
+      if (!chapter) return false;
+      const key = Object.keys(chapter.data.words).find(entry => entry.toLowerCase() === word.toLowerCase());
+      if (!key) return false;
+      window.dispatchEvent(new Event("reader:navigate"));
+      loadChapter(episode);
+      selectWord(key);
+      const targets = [...story.querySelectorAll(".vocab")];
+      const target = targets.find(button => button.dataset.occurrenceId === occurrenceId) || targets.find(button => button.dataset.word === key);
+      if (target) {
+        target.scrollIntoView({ block: "center", behavior: "auto" });
+        target.focus({ preventScroll: true });
+        target.classList.add("vocab-return-highlight");
+        window.setTimeout(() => target.classList.remove("vocab-return-highlight"), 1500);
+      }
+      return true;
+  }
+  window.VocabBook.init({
+    chapters,
+    beforeOpen: () => closeMobileCard(false),
+    onNavigate: navigateToStory
+  });
+  window.LearningStatus.init(learningStore, navigateToStory);
   loadChapter(data.id);
 })();

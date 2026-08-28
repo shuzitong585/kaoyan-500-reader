@@ -1,0 +1,65 @@
+/* Mobile V1: one site, existing controls and storage; desktop rules untouched. */
+.mobile-reader-header, .mobile-chapter-picker, .mobile-nav-label { display:none; }
+@media (max-width:768px) {
+  body { --mobile-bottom-space:calc(64px + env(safe-area-inset-bottom, 0px)); }
+  .mobile-reader-header { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:13px 18px; background:var(--paper); border-bottom:1px solid #ebe8e3; }
+  .mobile-reader-header strong { font-size:14px; font-weight:600; }
+  .mobile-reader-header span { font-size:12px; color:#7c7468; white-space:nowrap; }
+  .desktop-nav-label { display:none; }
+  .mobile-nav-label { display:inline; }
+  .study-navigation { position:fixed; inset:auto 0 0; z-index:900; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:5px; padding:6px 12px calc(6px + env(safe-area-inset-bottom, 0px)); border:0; border-top:1px solid #e3e5ea; background:rgba(255,255,255,.97); box-shadow:0 -2px 12px #23334b06; }
+  .study-navigation button { min-width:0; min-height:44px; padding:8px 6px; font-size:14px; border:1px solid transparent; background:transparent; color:#687286; border-radius:7px; }
+  .study-navigation button[aria-current], .study-navigation button[aria-pressed] { background:transparent; border-color:transparent; color:#687286; }
+  .study-navigation button.mobile-nav-active { background:#eeedf5; color:#51437a; font-weight:600; }
+  .chapter-nav, .focus-episodes { display:none; }
+  .mobile-chapter-picker { display:grid; grid-template-columns:minmax(0,1fr) minmax(84px,1fr) minmax(0,1fr); align-items:center; gap:8px; margin:0 0 20px; }
+  .mobile-chapter-picker button, .mobile-chapter-picker select { min-width:0; width:100%; min-height:44px; padding:8px 6px; border:1px solid #e0e2e9; border-radius:7px; background:#fff; color:#43516a; font:inherit; font-size:14px; }
+  .mobile-chapter-picker select { font-size:16px; text-align:center; }
+  .mobile-chapter-picker button:disabled { color:#a4a9b2; background:#f5f5f7; cursor:default; }
+  .mobile-chapter-picker :focus-visible { outline:2px solid #82749f; outline-offset:2px; }
+  .app-shell { display:block; height:auto; overflow:visible; }
+  .reader { width:100%; height:auto; overflow:visible; scrollbar-gutter:auto; padding:18px 18px calc(var(--mobile-bottom-space) + 28px); border:0; }
+  .reader-header, .story { width:100%; }
+  .reader-meta { flex-wrap:wrap; gap:6px 9px; margin:16px 0 26px; font-size:12px; }
+  .reader-meta span + span::before { margin-right:9px; }
+  .story p { font-size:17px; line-height:1.85; margin-bottom:1em; overflow-wrap:anywhere; }
+  .story p:first-child { font-size:19px; }
+  .vocab { padding:.12em .3em; }
+  .dictionary { max-height:78vh; max-height:78dvh; scrollbar-gutter:auto; padding:12px 16px calc(20px + env(safe-area-inset-bottom, 0px)); }
+  .mobile-card-close { position:sticky; display:grid; margin:-4px 0 0 auto; top:0; width:44px; height:44px; color:#49413d; z-index:2; }
+  .dictionary-inner { padding-top:0; }
+  .word-card { padding:18px; border-radius:12px; box-shadow:none; overflow-wrap:anywhere; }
+  .word-heading-row { min-width:0; }
+  .word-title h2 { max-width:100%; overflow-wrap:anywhere; font-size:clamp(30px,9vw,40px); line-height:1.1; }
+  .phonetic { overflow-wrap:anywhere; }
+  .dictionary .vocab-save-button { min-height:44px; }
+  .focus-panel { padding:18px 16px calc(var(--mobile-bottom-space) + 24px); }
+  .focus-panel .focus-kicker { display:none; }
+  .focus-panel h1 { font-size:25px; margin:0 0 16px; }
+  .focus-chapter-header { display:flex; flex-direction:column; align-items:stretch; gap:12px; padding:0 0 12px; }
+  .focus-chapter-caption { line-height:1.6; }
+  .focus-toolbar { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .focus-toolbar select { grid-column:1/-1; }
+  .focus-panel button, .focus-panel select { min-height:44px; max-width:100%; }
+  .focus-toolbar button { font-size:14px; }
+  .focus-panel select { font-size:16px; }
+  .focus-card { grid-template-columns:minmax(0,1fr); padding:16px; gap:12px; box-shadow:0 2px 8px #24395803; }
+  .focus-details { grid-template-columns:minmax(0,1fr); gap:9px; }
+  .focus-detail { padding:10px 11px; }
+  .focus-detail p { font-size:14px; line-height:1.65; }
+  .focus-word-info h2 { font-size:32px; }
+  .focus-card.focus-card-question { padding:18px 16px; }
+  .focus-card-question .focus-word-info h2 { font-size:36px; }
+  .focus-card-question .focus-reveal { padding:10px 24px; font-size:15px; }
+  .focus-actions { display:flex; flex-direction:column; align-items:stretch; gap:12px; }
+  .focus-ratings { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; margin:0; }
+  .focus-ratings button { font-size:13px; padding:8px 4px; }
+  .focus-auxiliary { display:flex; flex-direction:column-reverse; gap:6px; margin:0; }
+  .focus-auxiliary button { font-size:14px; }
+  .vocab-book-dialog { width:calc(100% - 20px); max-width:calc(100% - 20px); max-height:calc(100dvh - var(--mobile-bottom-space) - 24px); margin:12px auto auto; padding:18px 16px; border-radius:14px; }
+  .vocab-book-header { gap:10px; margin-bottom:16px; }
+  .vocab-book-header > div { min-width:0; }
+  .vocab-book-word h3 { overflow-wrap:anywhere; }
+  .vocab-book-actions { display:grid; grid-template-columns:minmax(0,1fr); gap:8px; }
+  .vocab-book-dialog .study-navigation { color-scheme:light; }
+}

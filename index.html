@@ -5,13 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="考研500高频词爽文互动查词器 EP01 Demo">
   <title>考研500高频词｜爽文互动查词器</title>
-  <link rel="stylesheet" href="styles.css?v=card-v2-sample">
+  <link rel="stylesheet" href="styles.css?v=desktop-learning-v1">
+  <link rel="stylesheet" href="focus-cards.css">
+  <link rel="stylesheet" href="mobile.css">
 </head>
 <body>
   <main class="app-shell">
     <section class="reader" aria-labelledby="story-title">
       <header class="reader-header">
         <nav class="chapter-nav" id="chapter-nav" aria-label="章节导航"></nav>
+        <section class="learning-status" id="learning-status" aria-label="今日学习进度">
+          <div class="learning-heading"><h2>今日学习进度</h2><span id="learning-percent">0%</span></div>
+          <div class="learning-summary"><span id="daily-contacts" aria-live="polite">今日接触 0 / 100</span></div>
+          <progress id="learning-progress" max="100" value="0" aria-label="今日单词接触进度"></progress>
+          <div class="daily-learning learning-links" aria-label="今日学习">
+            <span id="daily-new">新词 0</span><span id="daily-review">复习 0</span>
+            <button id="vocab-book-open" type="button" aria-haspopup="dialog"><span id="vocab-book-entry-count" aria-live="polite">☆ 生词 0</span></button>
+          </div>
+          <p id="learning-notice" role="status" hidden></p>
+          <div class="learning-links">
+            <span id="learning-recent">最近学习 --</span>
+            <button id="learning-continue" type="button" disabled>继续 ›</button>
+          </div>
+        </section>
         <p class="eyebrow" id="chapter-label"></p>
         <h1 id="story-title"></h1>
         <div class="reader-meta">
@@ -33,6 +49,17 @@
       </div>
     </aside>
   </main>
+
+  <dialog id="vocab-book-dialog" class="vocab-book-dialog" aria-labelledby="vocab-book-title">
+    <header class="vocab-book-header">
+      <div><h2 id="vocab-book-title">生词本</h2><p id="vocab-book-count" aria-live="polite">已收藏 0 词</p><p>在剧情里收藏的词，都在这里。</p></div>
+      <button id="vocab-book-close" type="button" aria-label="关闭生词本">×</button>
+    </header>
+    <label class="vocab-book-search-label" for="vocab-book-search">搜索英文或中文释义</label>
+    <input id="vocab-book-search" type="search" placeholder="搜索单词 / 中文释义" autocomplete="off">
+    <p id="vocab-book-status" role="status" hidden></p>
+    <div id="vocab-book-list" class="vocab-book-list"></div>
+  </dialog>
 
   <script src="data/ep01.js?v=card-v2-sample"></script>
 <script src="data/ep02.js"></script>
@@ -64,6 +91,12 @@
 <script src="data/card-v3-ep06-10-complete.js?v=ep06-10-v3"></script>
 <script src="data/card-v3-ep11-16-complete.js?v=ep11-16-v3"></script>
 <script src="chapters.js?v=ep22"></script>
-<script src="app.js?v=card-v3-216"></script>
+<script src="vocab-book.js?v=learning-v2"></script>
+<script src="learning-store.js?v=1"></script>
+<script src="learning-status.js?v=desktop-v1"></script>
+<script src="app.js?v=desktop-v1"></script>
+<script src="focus-words-data.js"></script>
+<script src="focus-cards.js"></script>
+<script src="mobile-ui.js"></script>
 </body>
 </html>
