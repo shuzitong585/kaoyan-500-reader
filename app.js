@@ -164,6 +164,7 @@
     title.textContent = data.title;
     chapterLabel.textContent = `考研 500 高频词 · ${chapter.label}`;
     story.innerHTML = data.paragraphs.map(renderParagraph).join("");
+    if (window.EP01Listening) window.EP01Listening.setChapter(currentChapter.id);
     window.LearningStatus.setChapter(currentChapter.id);
     chapterNav.querySelectorAll(".chapter-tab").forEach(button => {
       const active = button.dataset.chapter === chapter.id;
